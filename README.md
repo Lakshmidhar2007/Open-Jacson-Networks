@@ -18,68 +18,55 @@ Visual components and Python
 
 ## Experiment:
 
+<img width="1147" height="681" alt="image" src="https://github.com/user-attachments/assets/405218af-5f1b-4901-a810-1ee7e9687da4" />
+
 
 ## Program
 ```py
-import math
-
-# Getting Inputs
-ArrivalTime = float(input("Enter the mean inter arrival time of objects from Feeder (in secs): "))
-ServiceTime1 = float(input("Enter the mean inter service time of Lathe Machine 1 (in secs): "))
-ServiceTime2 = float(input("Enter the mean inter service time of Lathe Machine 2 (in secs): "))
-ServiceTime3 = float(input("Enter the mean inter service time of Lathe Machine 3 (in secs): "))
-RobotTime = float(input("Enter the Additional time taken for the Robot (in secs): "))
-
-# Calculating Lambda and Mu for each server
-Lambda = 1 / ArrivalTime
-Mu1 = 1 / (ServiceTime1 + RobotTime)
-Mu2 = 1 / (ServiceTime2 + RobotTime)
-Mu3 = 1 / (ServiceTime3 + RobotTime)
-
-print("Series Queues with Infinite Capacity - Open Jackson Network")
-print("The mean arrival rate per second               : %0.2f" % Lambda)
-print("The mean service rate per second of Lathe 1    : %0.2f" % Mu1)
-print("The mean service rate per second of Lathe 2    : %0.2f" % Mu2)
-print("The mean service rate per second of Lathe 3    : %0.2f" % Mu3)
-
-# Check for stability condition
-if (Lambda < Mu1) and (Lambda < Mu2) and (Lambda < Mu3):
-    # Calculating performance metrics for each server
-    Ls1 = Lambda / (Mu1 - Lambda)
-    Ls2 = Lambda / (Mu2 - Lambda)
-    Ls3 = Lambda / (Mu3 - Lambda)
-
-    Ls = Ls1 + Ls2 + Ls3  # Total number in system
-
-    Lq1 = Ls1 - Lambda / Mu1
-    Lq2 = Ls2 - Lambda / Mu2
-    Lq3 = Ls3 - Lambda / Mu3
-
-    Wq1 = Lq1 / Lambda
-    Wq2 = Lq2 / Lambda
-    Wq3 = Lq3 / Lambda
-
-    Ws = Ls / (3 * Lambda)
-
-    # Output
-    print("Average number of objects in the system S1     : %0.2f" % Ls1)
-    print("Average number of objects in the system S2     : %0.2f" % Ls2)
-    print("Average number of objects in the system S3     : %0.2f" % Ls3)
-    print("Average number of objects in the overall system: %0.2f" % Ls)
-    print("Average number of objects in the conveyor S1   : %0.2f" % Lq1)
-    print("Average number of objects in the conveyor S2   : %0.2f" % Lq2)
-    print("Average number of objects in the conveyor S3   : %0.2f" % Lq3)
-    print("Average waiting time of an object in conveyor S1: %0.2f secs" % Wq1)
-    print("Average waiting time of an object in conveyor S2: %0.2f secs" % Wq2)
-    print("Average waiting time of an object in conveyor S3: %0.2f secs" % Wq3)
+arr_time=float(input("Enter the mean inter arrival time of objects from Feeder (in secs): "))
+ser_time1=float(input("Enter the mean  inter service time of Lathe Machine 1 (in secs) :  "))
+ser_time2=float(input("Enter the mean  inter service time of Lathe Machine 2 (in secs) :  "))
+ser_time3=float(input("Enter the mean  inter service time of Lathe Machine 3 (in secs) :  "))
+Robot_time=float(input("Enter the Additional time taken for the Robot (in secs) :  "))
+lam=1/arr_time
+mu1=1/(ser_time1+Robot_time)
+mu2=1/(ser_time2+Robot_time)
+mu3=1/(ser_time3+Robot_time)
+print("-----------------------------------------------------------------------")
+print("Series Queues with infinite capacity- Open Jackson Network")
+print("-----------------------------------------------------------------------")
+if (lam <  mu1) and (lam <  mu2) and (lam <  mu3):
+    Ls1=lam/(mu1-lam)
+    Ls2=lam/(mu2-lam)
+    Ls3=lam/(mu3-lam)
+    Ls=Ls1+Ls2+Ls3
+    Lq1=Ls1-lam/mu1
+    Lq2=Ls2-lam/mu2
+    Lq3=Ls3-lam/mu3
+    Wq1=Lq1/lam
+    Wq2=Lq2/lam
+    Wq3=Lq3/lam
+    Ws=Ls/(3*lam)
+    print("Average number of objects in the system S1 : %0.2f "%Ls1)
+    print("Average number of objects in the system S2 : %0.2f "%Ls2)
+    print("Average number of objects in the system S3 : %0.2f "%Ls3)
+    print("Average number of objects in the overall system    : %0.2f "%Ls)
+    print("Average number of objects in the conveyor S1  :  %0.2f "%Lq1)
+    print("Average number of objects in the conveyor S2  :  %0.2f "%Lq2)
+    print("Average number of objects in the conveyor S3  :  %0.2f "%Lq3)
+    print("Average waiting time of an object in the conveyor S1 : %0.2f secs"%Wq1)
+    print("Average waiting time of an object in the conveyor S2 : %0.2f secs"%Wq2)
+    print("Average waiting time of an object in the conveyor S3 : %0.2f secs"%Wq3)
 else:
-    print("Warning! Objects Overflow will happen in the conveyor")
+    print("Warning! Objects Over flow will happen in the conveyor")
+print("----------------------------------------------------------------------")
 
 ```
 
 ## Output
 
-![alt text](image.png)
+<img width="621" height="310" alt="image" src="https://github.com/user-attachments/assets/9c8fbc64-8abb-497b-8bfb-3d42e26730da" />
+
 
 ## Result
 Thus, the program has been executed successfully and the required parameters have been calculated as per the given conditions.
